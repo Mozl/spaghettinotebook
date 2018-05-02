@@ -2,12 +2,12 @@
   
   (function newNote() {
     var note = new Note('this is an example note that has more than 20 characters becasuse it should');
-    assert.isTrue(typeof note.title === "string");
-    assert.isTrue(typeof note.body === "string");
+    expect(typeof note.title).toEqual('string');
+    expect(typeof note.body).toEqual("string");
   })();
 
   (function extractTitleTest() {
     var note = new Note("this is an example note that has more than 20 characters becasuse it should");
-    assert.isTrue(note.title.length === 20);
+    expect(note.title.length).toEqual(20);
   })();
 })();
