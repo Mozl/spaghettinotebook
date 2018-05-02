@@ -4,32 +4,39 @@
   <link rel="stylesheet" type="text/css" href="modalstyle.css">
   <title>Spaghetti Notes</title>
 
+  <script src="noteModel.js"></script>
+  <script src="notebook.js"></script>
+  <script src="listDisplay.js"></script>
+  <script src="addNoteButton.js"></script>
 
 </head>
 <body>
+  <script>
+    var note1 = new Note("TEST NOTE 1");
+    var note2 = new Note("TEST NOTE 20 characters");
+  </script>
+  <script>
+    var notebook = new Notebook;
+    notebook.addNote(note1);
+    notebook.addNote(note2);
+  </script>
 
   <h1>NOTES</h1>
 
-  <div id="testArea"></div>
+  <div id="listArea">
+    <ul id="theList">
 
-  <ul>
-    <li>First note</li>
-    <li>Second note</li>
-    <li>Third note</li>
-    <li>Fourth note</li>
-  </ul>
+    </ul>
+  </div>
 
-  <textarea rows="10" cols="20" placeholder="Write note here"></textarea>
+  
+  <script>
+    makeList(notebook);
+  </script>
+
+  <textarea rows="10" cols="20" placeholder="Write note here" id="notebody"></textarea>
   <br>
-  <button>Add</button>
-
-
-
-
-
-
-
-
+  <button id="addbutton">Add</button>
 
   <button id="myBtn">Open Modal</button>
 
@@ -40,9 +47,8 @@
     </div>
   </div>
 
-
   <script src="notemodal.js"></script>
-
+  <script src="addNoteButton.js"></script>
 
 </body>
 </html>
