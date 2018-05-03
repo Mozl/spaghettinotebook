@@ -4,6 +4,7 @@ console.log(note);
 
 note.forEach(function(thing){
   thing.onclick = function(){
-      console.log(thing);
+      console.log(thing.innerHTML);
+
   };
 });
