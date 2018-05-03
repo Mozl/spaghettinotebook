@@ -10,9 +10,15 @@ function makeList(notebook) {
   }
   var all = document.getElementsByTagName('LI');
   var items = Array.from(all);
+  
+  
   items.forEach(function(item) {
     item.onclick = function(){
-    console.log(item.innerHTML);
+    var modal = document.getElementById('modalText');
+    var modallll = document.getElementById('myModal');
+    modal.innerHTML = modalText.innerHTML;
+    modallll.style.display = "block";
+    console.log(modalText);
     };
   });
 
