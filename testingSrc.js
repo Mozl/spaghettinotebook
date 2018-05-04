@@ -1,11 +1,3 @@
-var assert = {
-  isTrue: function(assertionToCheck) {
-    if (!assertionToCheck) {
-      throw new Error ("Assertion failed: " + assertionToCheck + " is not truthy");
-    }
-  }
-};
-
 expect = function(input) {
   return {actual: input};
 };
@@ -17,3 +9,40 @@ Object.prototype.toEqual = function(expected) {
    throw new Error ('expected ' + this.actual + ', got: ' + expected);
  }
 };
+
+var init = (function() {
+  var hooks = [];
+
+  function getHook() {
+    return hooks[0];
+  }
+
+  function setHook(func) {
+    hooks.unshift(func);
+  }
+
+  function removeHook() {
+    hooks.splice(0, 1);
+  }
+
+  return {
+  describe: function(description, callback) {
+    callback();
+    removeHook();
+  },
+
+  it: function(title, callback) {
+    var hook = getHook()
+    if (hook) hook();
+    callback();
+  },
+
+  beforeEach: function(callback) {
+    setHook(callback);
+  }
+ };
+})();
+
+var beforeEach = init.beforeEach;
+var it = init.it;
+var describe = init.describe;
