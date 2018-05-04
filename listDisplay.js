@@ -11,16 +11,18 @@ function resetListContainer() {
 function appendNotesTo(listContainer){
   for (var i = 0; i < notebook.allNotes.length; i++) {
     var currentNote = notebook.allNotes[i];
-
     var listContainerItem = document.createElement("li");
-    listContainerItem.innerHTML = currentNote.title;
-    listContainerItem.onclick = function() {
-      var modal = document.getElementById('modalText');
-      var modallll = document.getElementById('myModal');
-
-      modal.innerHTML = modalText.innerHTML;
-      modallll.style.display = "block";
-    };
     listContainer.appendChild(listContainerItem);
+
+    listContainerItem.innerHTML = currentNote.title;
+    itemArray = Array.from(document.getElementsByTagName("LI"));
+    itemArray.forEach(function(listContainerItem) {
+      listContainerItem.onclick = function() {
+        var modalText = document.getElementById('modalText');
+        var listContainerItemIndex = itemArray.indexOf(listContainerItem);
+        modalText.innerHTML = notebook.allNotes[listContainerItemIndex].body;
+        modal.style.display = "block";
+      };
+    });
   }
 }
