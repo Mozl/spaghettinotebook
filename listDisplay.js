@@ -1,5 +1,6 @@
 function makeList(notebook) {
   appendNotesTo(resetListContainer());
+  showNoteBodyInModal();
 }
 
 function resetListContainer() {
@@ -13,16 +14,20 @@ function appendNotesTo(listContainer){
     var currentNote = notebook.allNotes[i];
     var listContainerItem = document.createElement("li");
     listContainer.appendChild(listContainerItem);
-
     listContainerItem.innerHTML = currentNote.title;
-    itemArray = Array.from(document.getElementsByTagName("LI"));
-    itemArray.forEach(function(listContainerItem) {
-      listContainerItem.onclick = function() {
-        var modalText = document.getElementById('modalText');
-        var listContainerItemIndex = itemArray.indexOf(listContainerItem);
-        modalText.innerHTML = notebook.allNotes[listContainerItemIndex].body;
-        modal.style.display = "block";
-      };
-    });
+
+
   }
+}
+
+function showNoteBodyInModal() {
+  itemArray = Array.from(document.getElementsByTagName("LI"));
+  itemArray.forEach(function(listContainerItem) {
+    listContainerItem.onclick = function() {
+      var modalText = document.getElementById('modalText');
+      var listContainerItemIndex = itemArray.indexOf(listContainerItem);
+      modalText.innerHTML = notebook.allNotes[listContainerItemIndex].body;
+      modal.style.display = "block";
+    };
+  });
 }

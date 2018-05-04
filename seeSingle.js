@@ -8,23 +8,13 @@ listContainerItem.onclick = function() {
 
   notesArray.forEach(function(arrayItem) {
     arrayItem.onclick = function() {
-      
+
       var noteBody = document.getElementById("noteBody");
-    }
+    };
   });
   var modal = document.getElementById('modalText');
   modal.style.display = "block";
 };
-
-
-
-
-
-
-
-
-
-
 
 
 var closeButton = document.getElementsByClassName("close")[0];
