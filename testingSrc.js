@@ -32,7 +32,7 @@ var init = (function() {
   },
 
   it: function(title, callback) {
-    var hook = getHook()
+    var hook = getHook();
     if (hook) hook();
     callback();
   },
