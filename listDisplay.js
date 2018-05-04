@@ -14,7 +14,5 @@ function appendNotesTo(listContainer){
     var listContainerItem = document.createElement("li");
     listContainer.appendChild(listContainerItem);
     listContainerItem.innerHTML = currentNote.title;
-
-
   }
 }
