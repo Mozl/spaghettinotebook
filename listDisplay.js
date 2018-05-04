@@ -1,6 +1,5 @@
 function makeList(notebook) {
   appendNotesTo(resetListContainer());
-  showNoteBodyInModal();
 }
 
 function resetListContainer() {
@@ -18,16 +17,4 @@ function appendNotesTo(listContainer){
 
 
   }
-}
-
-function showNoteBodyInModal() {
-  itemArray = Array.from(document.getElementsByTagName("LI"));
-  itemArray.forEach(function(listContainerItem) {
-    listContainerItem.onclick = function() {
-      var modalText = document.getElementById('modalText');
-      var listContainerItemIndex = itemArray.indexOf(listContainerItem);
-      modalText.innerHTML = notebook.allNotes[listContainerItemIndex].body;
-      modal.style.display = "block";
-    };
-  });
 }
