@@ -7,7 +7,7 @@
   <script src="noteModel.js"></script>
   <script src="notebook.js"></script>
   <script src="listDisplay.js"></script>
-  <script src="addNoteButton.js"></script>
+
 
 </head>
 <body>
@@ -29,12 +29,12 @@
     </ul>
   </div>
 
-  
+
   <script>
     makeList(notebook);
   </script>
 
-  <textarea rows="10" cols="20" placeholder="Write note here" id="notebody"></textarea>
+  <textarea rows="10" cols="20" placeholder="Write note here" id="noteBody"></textarea>
   <br>
   <button id="addbutton">Add</button>
 
@@ -43,12 +43,12 @@
   <div id="myModal" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
-      <p>Some text in the Modal..</p>
+      <p id='modalText'>Some text in the Modal..</p>
     </div>
   </div>
 
   <script src="notemodal.js"></script>
   <script src="addNoteButton.js"></script>
-
+  <script src="seeSingle.js"></script>
 </body>
 </html>

@@ -1,10 +1,18 @@
 function makeList(notebook) {
-  var list = document.getElementById('theList');
-  list.innerHTML = "";
-  var i;
-  for (i = 0; i < notebook.allNotes.length; i++) {
-    var listItem = document.createElement("li");
-    listItem.innerHTML = notebook.allNotes[i].title;
-    list.appendChild(listItem);
+  appendNotesTo(resetListContainer());
+}
+
+function resetListContainer() {
+  var listContainer = document.getElementById('theList');
+  listContainer.innerHTML = "";
+  return listContainer;
+}
+
+function appendNotesTo(listContainer){
+  for (var i = 0; i < notebook.allNotes.length; i++) {
+    var currentNote = notebook.allNotes[i];
+    var listContainerItem = document.createElement("li");
+    listContainer.appendChild(listContainerItem);
+    listContainerItem.innerHTML = currentNote.title;
   }
 }
